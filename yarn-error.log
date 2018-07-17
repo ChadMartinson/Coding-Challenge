@@ -1,0 +1,53 @@
+Arguments: 
+  /Users/chadmartinson/.nvm/versions/node/v8.11.3/bin/node /Users/chadmartinson/.nvm/versions/node/v8.11.3/bin/yarn global bin
+
+PATH: 
+  /Users/chadmartinson/.nvm/versions/node/v8.11.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.7.0
+
+Node version: 
+  8.11.3
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/chadmartinson/Documents/GitHub/Coding-Challenge/package.json: Unexpected token } in JSON at position 201
+      at JSON.parse (<anonymous>)
+      at /Users/chadmartinson/.nvm/versions/node/v8.11.3/lib/node_modules/yarn/lib/cli.js:1130:59
+      at Generator.next (<anonymous>)
+      at step (/Users/chadmartinson/.nvm/versions/node/v8.11.3/lib/node_modules/yarn/lib/cli.js:98:30)
+      at /Users/chadmartinson/.nvm/versions/node/v8.11.3/lib/node_modules/yarn/lib/cli.js:109:13
+      at <anonymous>
+
+npm manifest: 
+  {
+    "name": "coding-challenge",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server/index.js",
+    "engines": {
+      "node": "8.11.3"
+    },
+    "scripts": {
+      "start": "node ./server/index.js",
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/ChadMartinson/Coding-Challenge.git"
+    },
+    "author": "Chad Martinson",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/ChadMartinson/Coding-Challenge/issues"
+    },
+    "homepage": "https://github.com/ChadMartinson/Coding-Challenge#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

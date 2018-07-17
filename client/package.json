@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://ChadMartinson.github.io",
   "dependencies": {
     "rambda": "^1.1.5",
     "react": "^16.4.1",

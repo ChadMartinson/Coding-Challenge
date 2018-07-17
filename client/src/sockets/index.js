@@ -2,7 +2,7 @@ import * as types from '../constants/ActionTypes';
 import { populateFactoryList, addNewFactory, updatedFactory, removedFactory } from '../actions';
 
 const setupSocket = (dispatch) => {
-	const socket = new WebSocket('ws://arcane-scrubland-40726.herokuapp.com/');
+	const socket = new WebSocket('wss://passport-server-007.herokuapp.com/');
 	
 	socket.onopen = () => {
 		socket.send(JSON.stringify({
