@@ -1,0 +1,22 @@
+{
+  "name": "coding-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "engines": {
+    "node": "8.11.3"
+  },
+  "scripts": {
+    "start": "node ./server/index.js",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChadMartinson/Coding-Challenge.git"
+  },
+  "author": "Chad Martinson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChadMartinson/Coding-Challenge/issues"
+  },
+  "homepage": "https://github.com/ChadMartinson/Coding-Challenge#readme"
+}
