@@ -1,3 +1,4 @@
+/* eslint-disable */
 import * as types from '../constants/ActionTypes';
 
 const getFactoryIndex = (data, oldFactories) => oldFactories.findIndex((factory) => factory.id = data.id);
@@ -20,10 +21,6 @@ export default function (state = {}, action) {
 		case 'NEW_FACTORY':
 			oldFactories.push(data);
 			return {...state, oldFactories};
-		// eslint-disable-line
-		default:// eslint-disable-line no-fallthrough
-			
-			return {...state};
 	}
 }
 
