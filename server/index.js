@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Factory = require('./models/Factory');
 const WebSocket = require('ws');
 const ObjectId = require('mongodb').ObjectId;
-
-const wss = new WebSocket.Server({ port: 8989 });
-const url = 'mongodb://localhost:27017/sample';
+const port = process.env.PORT || 8989;
+const wss = new WebSocket.Server({ port });
+const url = process.env.MONGOLAB_URI;
 mongoose.connect(`${url}`);
 mongoose.Promise = global.Promise;
 

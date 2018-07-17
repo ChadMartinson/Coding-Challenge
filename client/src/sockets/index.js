@@ -2,7 +2,7 @@ import * as types from '../constants/ActionTypes';
 import { populateFactoryList, addNewFactory, updatedFactory, removedFactory } from '../actions';
 
 const setupSocket = (dispatch) => {
-	const socket = new WebSocket('ws://localhost:8989');
+	const socket = new WebSocket('');
 	
 	socket.onopen = () => {
 		socket.send(JSON.stringify({
