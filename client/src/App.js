@@ -47,8 +47,8 @@ class App extends Component {
     const { factories, createFactory } = this.props;
     return (
       <Grid>
-        <h2>My first Apollo app</h2>
-        <Button onClick={this.showModal}>Add Factory</Button>
+        <h2>Passport Challenge</h2>
+        <Button onClick={this.showModal} style={{marginBottom: '1em'}}>Add Factory</Button>
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Add Factory</Modal.Title>

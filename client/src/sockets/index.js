@@ -1,5 +1,5 @@
 import * as types from '../constants/ActionTypes';
-import { populateFactoryList, addNewFactory } from '../actions';
+import { populateFactoryList, addNewFactory, updatedFactory, removedFactory } from '../actions';
 
 const setupSocket = (dispatch) => {
 	const socket = new WebSocket('ws://localhost:8989');
@@ -11,6 +11,7 @@ const setupSocket = (dispatch) => {
 	};
 	socket.onmessage = (event) => {
 		const message = JSON.parse(event.data);
+		console.log('=========Incoming Messages========= ', message)
 		const { type, data } = message;
 		switch (type) {
 			case types.FACTORY_LIST:
@@ -20,7 +21,10 @@ const setupSocket = (dispatch) => {
 				dispatch(addNewFactory(data));
 				break;
 			case types.FACTORY_UPDATED:
-				dispatch()
+				dispatch(updatedFactory(data));
+				break;
+			case types.FACTORY_REMOVED:
+				dispatch(removedFactory(data));
 			default:
 				break
 		}

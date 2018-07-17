@@ -1,26 +1,24 @@
-/* eslint-disable */
 import * as types from '../constants/ActionTypes';
-
-const getFactoryIndex = (data, oldFactories) => oldFactories.findIndex((factory) => factory.id = data.id);
 
 export default function (state = {}, action) {
 	const { data = {} } = action;
-	const { factories = [] } = data;
-	const { factories: oldFactories } = state;
+	const { factories } = state;
 	switch (action.type) {
 		case types.FACTORY_LIST:
-			return {...state, factories };
+			return {...state, factories: data.factories };
 		case types.FACTORY_UPDATED:
-			const updateIndex = getFactoryIndex(data, oldFactories);
-			oldFactories[updateIndex] = data;
-			return {...state, oldFactories};
+			const withUpdatedFactory = factories.map((factory) => factory.id === data.id ? data : factory );
+			return {...state, factories: withUpdatedFactory};
 		case types.FACTORY_REMOVED:
-			const deleteIndex = getFactoryIndex(data, oldFactories);
-			oldFactories.slice([deleteIndex], 1);
-			return {...state, oldFactories};
+			console.log(data)
+			const withFactoryRemoved = factories.filter((factory) => factory.id !== data.id);
+			return {...state, factories: withFactoryRemoved};
 		case 'NEW_FACTORY':
-			oldFactories.push(data);
-			return {...state, oldFactories};
+			return {...state, factories: [ ...factories, data ]};
+		// eslint-disable-line
+		default:// eslint-disable-line no-fallthrough
+			
+			return {...state};
 	}
 }
 

@@ -3971,8 +3971,8 @@ jest@20.0.4:
     jest-cli "^20.0.4"
 
 js-base64@^2.1.9:
-  version "2.4.6"
-  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.6.tgz#1d49f618bef43630cd191f4e122447acfdb947d8"
+  version "2.4.7"
+  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.7.tgz#d80e732c8a5abe1224c89a5c348f34766227abee"
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
@@ -5500,6 +5500,10 @@ raf@3.4.0:
   resolved "https://registry.yarnpkg.com/raf/-/raf-3.4.0.tgz#a28876881b4bc2ca9117d4138163ddb80f781575"
   dependencies:
     performance-now "^2.1.0"
+
+rambda@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/rambda/-/rambda-1.1.5.tgz#8ac65f7396f20cc122ba01fb6a4fb3ceb3befd20"
 
 randomatic@^3.0.0:
   version "3.0.0"

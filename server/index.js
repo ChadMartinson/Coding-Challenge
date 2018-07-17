@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Factory = require('./models/Factory');
 const WebSocket = require('ws');
+const ObjectId = require('mongodb').ObjectId;
 
 const wss = new WebSocket.Server({ port: 8989 });
 const url = 'mongodb://localhost:27017/sample';
@@ -26,22 +27,35 @@ wss.on('connection', (ws) => {
 	index = users.length;
 	users.push({ id: index + 1 });
 	ws.on('message', (message) => {
-		console.log('====== MESSAGE ======', message);
+		console.log('====== INCOMING MESSAGE ======', message);
 		const data = JSON.parse(message);
 		switch (data.type) {
 			case 'UPDATE_FACTORY':
-				const { id, ...payload } = data;
-				Factory.findByIdAndUpdate(id, payload, (err, data) => {
-					if (err) {throw new Error(err);}
+				Factory.findByIdAndUpdate({_id: ObjectId(data.data.id)}, data.data, {new: true}).exec( (err, data) => {
+					if (err) {return console.log(err.message);}
 					ws.send(JSON.stringify({
 						type: 'FACTORY_UPDATED',
 						data
 					}));
-					broadcast(data, ws);
+					broadcast({
+						type: 'FACTORY_UPDATED',
+						data
+					}, ws);
 				});
 				break;
 			case 'DELETE_FACTORY':
-				// Factory.findByIdAndRemove()
+				Factory.findByIdAndRemove({_id: ObjectId(data.data.id)}, (err, data) => {
+					if (err) {return console.log(err.message);}
+						ws.send(JSON.stringify({
+							type: 'FACTORY_REMOVED',
+							data
+						}));
+						broadcast({
+							type: 'FACTORY_REMOVED',
+							data
+						}, ws);
+					});
+				break;
 			case 'CREATE_FACTORY':
 				new Factory(data.data).save((err, data) => {
 					if (err) {throw new Error(err);}

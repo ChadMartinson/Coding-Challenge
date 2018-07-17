@@ -30,6 +30,12 @@ export const addNewFactory = newFactory => ({
 	data: newFactory
 });
 
-export const factoryShouldUpdate = newData => ({
-	
-})
+export const updatedFactory = data => ({
+	type: types.FACTORY_UPDATED,
+	data
+});
+
+export const removedFactory = data => ({
+	type: types.FACTORY_REMOVED,
+	data
+});

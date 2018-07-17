@@ -4,21 +4,15 @@ import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 
 export default class NewFactory extends Component {
   
-  propTypes = {
-    onHide: T.func.isRequired,
-    onSubmit: T.func.isRequired,
-    edit: T.bolean
-  };
-  
   constructor (props) {
     super(props);
     
     this.state = {
-      id: props.edit.id || null,
-      name: props.edit.name || null,
-      upper: props.edit.upper || null,
-      lower: props.edit.lower || null,
-      children: props.edit.lower || []
+      id: props.edit && props.edit.id || '',
+      name: props.edit &&props.edit.name || '',
+      upper: props.edit &&props.edit.upper || '',
+      lower: props.edit &&props.edit.lower || '',
+      children: props.edit && props.edit.children || []
     }
   }
   
@@ -78,4 +72,10 @@ export default class NewFactory extends Component {
     );
   }
 }
+
+NewFactory.propTypes = {
+  onHide: T.func.isRequired,
+  onSubmit: T.func.isRequired,
+  edit: T.object
+};
 

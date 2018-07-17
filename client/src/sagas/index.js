@@ -9,7 +9,6 @@ export const handleMutations = function* handleMutations(params) {
 		params.socket.send(JSON.stringify(action));
 	});
 	yield takeEvery(types.UPDATE_FACTORY, (action) => {
-		console.log('yup')
 		params.socket.send(JSON.stringify(action));
 	});
 };
